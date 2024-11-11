@@ -36,6 +36,9 @@ export const bestSellingTv = {
     sold: 17,
 }
 
+
+
+
 // STATISCHE VOORRAAD TV'S
 export let inventory = [
     {
