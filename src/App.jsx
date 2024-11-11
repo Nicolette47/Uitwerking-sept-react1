@@ -1,10 +1,13 @@
 import './App.css';
 import {soldTelevisions} from './helpers/totalSoldTVs.js';
 import {stockStart} from './helpers/startStock.js';
+import {stockCurrent} from './helpers/currentStock.js';
 
 function App() {
-const resultSoldTv = soldTelevisions();
-const resultStartStock = stockStart()
+    const resultSoldTv = soldTelevisions();
+    const resultStartStock = stockStart()
+    const resultCurrentStock = stockCurrent();
+
     return (
         <>
             <header>
@@ -14,10 +17,13 @@ const resultStartStock = stockStart()
             <main>
                 <h2>Verkoopoverzicht</h2>
                 <div>
-                    <p className="soldTvs">Het aantal verkochte producten: {resultSoldTv}</p>
+                    <p className="soldTvs">Aantal verkochte producten: {resultSoldTv}</p>
                 </div>
                 <div>
-                    <p className="startStock">Het aantal ingekochte producten: {resultStartStock}</p>
+                    <p className="startStock">Aantal ingekochte producten: {resultStartStock}</p>
+                </div>
+                <div>
+                    <p className="currentStock">Aantal te verkopen producten: {resultCurrentStock}</p>
                 </div>
             </main>
 
