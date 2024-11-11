@@ -12,3 +12,15 @@
     color: orangered;
     background-color: lightpink;
 }
+
+button {
+    background-color:lightskyblue ;
+    color: blueviolet;
+    font-weight: bold;
+    border-radius: 5px;
+    padding: 10px;
+}
+
+button + button {
+    margin-left: 10px;
+}
