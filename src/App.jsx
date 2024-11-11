@@ -4,6 +4,7 @@ import {stockStart} from './helpers/startStock.js';
 import {stockCurrent} from './helpers/currentStock.js';
 import {nameTv} from './helpers/nametv.js';
 import {priceTv} from './helpers/tvPrice.js';
+import {sizeOfTv} from './helpers/tvSize.js';
 
 function App() {
     const resultSoldTv = soldTelevisions();
