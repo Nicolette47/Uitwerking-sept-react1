@@ -1,9 +1,10 @@
 import './App.css';
 import {soldTelevisions} from './helpers/totalSoldTVs.js';
-
+import {stockStart} from './helpers/startStock.js';
 
 function App() {
 const resultSoldTv = soldTelevisions();
+const resultStartStock = stockStart()
     return (
         <>
             <header>
@@ -15,7 +16,9 @@ const resultSoldTv = soldTelevisions();
                 <div>
                     <p className="soldTvs">Het aantal verkochte producten: {resultSoldTv}</p>
                 </div>
-
+                <div>
+                    <p className="startStock">Het aantal ingekochte producten: {resultStartStock}</p>
+                </div>
             </main>
 
         </>

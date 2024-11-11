@@ -5,7 +5,7 @@ import {inventory} from "../constants/inventory.js";
 export function soldTelevisions() {
     let totalSold = 0;
     for (let i = 0; i < inventory.length; i++) {
-        totalSold = totalSold + inventory[i].sold;
+        totalSold += inventory[i].sold;
     }
  return totalSold;
 }
