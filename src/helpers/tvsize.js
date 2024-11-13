@@ -16,5 +16,4 @@ export function sizeOfTv() {
         cmSizes.push(`${sizes[i]} inches ( ${Math.round(cmSize)} cm)`);
     }
     return cmSizes.join(" | ")
-
 }

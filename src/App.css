@@ -24,3 +24,9 @@ button {
 button + button {
     margin-left: 10px;
 }
+
+
+.icons {
+    width: 20px;
+    height: 20px;
+}

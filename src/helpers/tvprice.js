@@ -1,5 +1,5 @@
 import {bestSellingTv} from "../constants/inventory.js";
 
-export function priceTv() {
+export function priceOfTv() {
     return `€${bestSellingTv.price},-`;
 }
