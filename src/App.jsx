@@ -5,13 +5,14 @@ import {stockCurrent} from './helpers/currentstock.js';
 import {nameOfTv} from './helpers/nametv.js';
 import {priceOfTv} from './helpers/tvprice.js';
 import {sizeOfTv} from './helpers/tvsize.js';
-import {bestSellingTv} from "./constants/inventory.js";
+import {bestSellingTv} from './constants/inventory.js';
 import check from './assets/check.png';
 import minus from './assets/minus.png';
 import {inventory} from './constants/inventory.js';
-import (allTvNames) from
-
-
+import {allTvNames} from './constants/deel2opdracht1.js';
+import {soldTvInfo} from './constants/deel2opdracht1.js';
+import {infoTvNH} from './constants/deel2opdracht1.js';
+import {suitableSportLovers} from './constants/deel2opdracht1.js';
 
 function App() {
     const resultSoldTv = soldTelevisions();
@@ -23,6 +24,9 @@ function App() {
     }
 
     console.log(allTvNames);
+    console.log(soldTvInfo);
+    console.log(infoTvNH);
+    console.log(suitableSportLovers);
 
     return (
         <>
@@ -46,8 +50,8 @@ function App() {
 
                 <section className="best-sold-Tv">
                     <h2>Best verkochte TV</h2>
-                    <div >
-                        <img src={bestSellingTv.sourceImg} alt="afbeelding van de tv" />
+                    <div>
+                        <img src={bestSellingTv.sourceImg} alt="afbeelding van de tv"/>
                     </div>
                     <div>
                         <h3>{nameOfTv()}</h3>
