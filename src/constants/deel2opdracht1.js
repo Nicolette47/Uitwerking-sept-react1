@@ -42,9 +42,23 @@ export const suitableSportLovers = inventory.map((tv) => {
 //Opdracht 1e (uitdaging): Gebruik array-methoden om alle informatie te verzamelen van de tv's die beschikbaar zijn in schermgroottes van 65 inch en groter.
 // stappenplan:
 // loop door de array heen en:
-// a) filter alle tv´s met schermgrootte 65 inch of meer eruit en
+// a) filter alle tv´s met schermgrootte 65 inch of meer eruit (let op: moet de array availableSizes doorzoeken (niet veranderen)!! =>  inventory[i].availableSizes [i]). Blijkt de some-methode te zijn (thanks to ChatGTP)
 // b) die entry moet in de array komen .
 // resultaat: array met objecten, waarbij elk object een tv bevat die schermgrootte 65 of meer heeft.
 
+export const tvInches = inventory.filter ( (tv) => {
+    if (tv.availableSizes.some(size => size >= 65)) {
+        return true;
+    } else {
+        return false;
+    }
+});
 
 
+
+// Opdracht 1f (uitdaging): Gebruik array-methoden om alle informatie te verzamelen van de tv's die over ambilight beschikken. Log de uitkomst in de console.
+// stappenplan:
+// loop door de array heen en:
+// a) filter alle tv´s met ambilight. Let op: filteren op inventory[i].options[4].applicable === true. De filter methode geeft hele entry terug, maar in call back moet dus stuk code komen waarin wordt gecheckt of options[4].applicable true is.
+// b) die entry moet in de array komen .
+// resultaat: array met objecten, waarbij elk object een tv bevat die ambilight heeft.

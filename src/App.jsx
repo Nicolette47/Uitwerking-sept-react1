@@ -5,7 +5,9 @@ import {stockCurrent} from './helpers/currentstock.js';
 import {nameOfTv} from './helpers/nametv.js';
 import {nameOfTv2} from './helpers/nametv.js';
 import {priceOfTv} from './helpers/tvprice.js';
+import {priceAllTvs} from './helpers/tvprice.js';
 import {sizeOfTv} from './helpers/tvsize.js';
+import {sizesOfTvs} from './helpers/tvsize.js';
 import {bestSellingTv} from './constants/inventory.js';
 import check from './assets/check.png';
 import minus from './assets/minus.png';
@@ -14,12 +16,10 @@ import {allTvNames} from './constants/deel2opdracht1.js';
 import {soldTvInfo} from './constants/deel2opdracht1.js';
 import {infoTvNH} from './constants/deel2opdracht1.js';
 import {suitableSportLovers} from './constants/deel2opdracht1.js';
+import {tvInches} from './constants/deel2opdracht1.js';
 
 
 function App() {
-    const resultSoldTv = soldTelevisions();
-    const resultStartStock = stockStart()
-    const resultCurrentStock = stockCurrent();
 
     function printText(buttonText) {
         console.log(buttonText);
@@ -29,6 +29,12 @@ function App() {
     console.log(soldTvInfo);
     console.log(infoTvNH);
     console.log(suitableSportLovers);
+    console.log(tvInches);
+
+const tvNamesGeneral = inventory.map((tv) => {
+    return `${tv.brand} ${tv.type} - ${tv.name}`
+});
+console.log(tvNamesGeneral);
 
 
     return (
@@ -68,8 +74,8 @@ function App() {
 
                                 <div className="tv-information">
                                     <h3>{nameOfTv()}</h3>
-                                    <p>{priceOfTv(bestSellingTv.price)}</p>
-                                    <p>{sizeOfTv(bestSellingTv.availableSizes)}</p>
+                                    <p className="best-tv-price">{priceOfTv()}</p>
+                                    <p>{sizeOfTv()}</p>
                                     <div className="icon-wrapper">
                                         <img src={check} className="icons" alt="check-icon"/>
                                         <p>wifi</p>
@@ -103,7 +109,8 @@ function App() {
                         </section>
 
                         <section>
-                            <ul>
+                            <h2>List of TV names:</h2>
+                            <ul className="tv-list">
                                 {inventory.map((tv) => {
                                     return <li key={tv.type}>{tv.brand}</li>
                                 })}
@@ -113,11 +120,20 @@ function App() {
                         <section>
                             <ul>
                                 {inventory.map((tv) => {
-                                    return <div className="tv-image"><img src={tv.sourceImg}
-                                                                          alt="afbeelding van de tv"/></div>
+                                    return (
+                                        <li key={tv.type} className="tv-overview">
+                                            <div className="tv-image"><img src={tv.sourceImg}
+                                                                           alt="afbeelding van de tv"/>
+                                            </div>
+                                            <div className="tv-information">
+                                                <h3>{nameOfTv2(tv)}</h3>
+                                                <p className="best-tv-price">{priceAllTvs(tv)}</p>
+                                                <p>{sizesOfTvs(tv)}</p>
+                                            </div>
+                                        </li>
+                                    );
                                 })
                                 }
-
                             </ul>
                         </section>
                     </main>

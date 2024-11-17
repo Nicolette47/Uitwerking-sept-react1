@@ -1,4 +1,5 @@
-import {bestSellingTv} from "../constants/inventory.js";
+import {bestSellingTv} from '../constants/inventory.js';
+import {inventory} from '../constants/inventory.js';
 
 // omrekeningsfactor: 1 inch is 2,54 cm.
 // Stappenplan:
@@ -11,6 +12,16 @@ import {bestSellingTv} from "../constants/inventory.js";
 export function sizeOfTv() {
     let cmSizes = [];
     const sizes = bestSellingTv.availableSizes
+    for (let i = 0; i < sizes.length; i++) {
+        let cmSize = sizes[i] * 2.54;
+        cmSizes.push(`${sizes[i]} inches ( ${Math.round(cmSize)} cm)`);
+    }
+    return cmSizes.join(" | ")
+}
+
+export function sizesOfTvs(tv) {
+    let cmSizes = [];
+    const sizes = tv.availableSizes
     for (let i = 0; i < sizes.length; i++) {
         let cmSize = sizes[i] * 2.54;
         cmSizes.push(`${sizes[i]} inches ( ${Math.round(cmSize)} cm)`);

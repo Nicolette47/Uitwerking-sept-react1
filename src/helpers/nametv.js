@@ -5,10 +5,7 @@ export function nameOfTv() {
      return `${bestSellingTv.brand} ${bestSellingTv.type} - ${bestSellingTv.name}`;
 }
 
-export function nameOfTv2() {
-     return `${inventory.brand} ${inventory.type} - ${inventory.name}`;
+
+export function nameOfTv2(tv) {
+    return `${tv.brand} ${tv.type} - ${tv.name}`;
 }
-
-
-
-
