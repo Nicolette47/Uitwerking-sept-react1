@@ -3,6 +3,7 @@ import {soldTelevisions} from './helpers/totalsoldtvs.js';
 import {stockStart} from './helpers/startstock.js';
 import {stockCurrent} from './helpers/currentstock.js';
 import {nameOfTv} from './helpers/nametv.js';
+import {nameOfTv2} from './helpers/nametv.js';
 import {priceOfTv} from './helpers/tvprice.js';
 import {sizeOfTv} from './helpers/tvsize.js';
 import {bestSellingTv} from './constants/inventory.js';
@@ -13,6 +14,7 @@ import {allTvNames} from './constants/deel2opdracht1.js';
 import {soldTvInfo} from './constants/deel2opdracht1.js';
 import {infoTvNH} from './constants/deel2opdracht1.js';
 import {suitableSportLovers} from './constants/deel2opdracht1.js';
+
 
 function App() {
     const resultSoldTv = soldTelevisions();
@@ -28,72 +30,99 @@ function App() {
     console.log(infoTvNH);
     console.log(suitableSportLovers);
 
+
     return (
         <>
-            <header>
-                <h1>Tech it easy dashboard</h1>
-            </header>
+            <div className="outer-container">
+                <div className="inner-container">
 
-            <main>
-                <section className="verkoopoverzicht">
-                    <h2>Verkoopoverzicht</h2>
-                    <div>
-                        <p className="soldTvs">Aantal verkochte producten: {resultSoldTv}</p>
-                    </div>
-                    <div>
-                        <p className="startStock">Aantal ingekochte producten: {resultStartStock}</p>
-                    </div>
-                    <div>
-                        <p className="currentStock">Aantal te verkopen producten: {resultCurrentStock}</p>
-                    </div>
-                </section>
+                    <header>
+                        <h1>Tech it easy dashboard</h1>
+                    </header>
 
-                <section className="best-sold-Tv">
-                    <h2>Best verkochte TV</h2>
-                    <div>
-                        <img src={bestSellingTv.sourceImg} alt="afbeelding van de tv"/>
-                    </div>
-                    <div>
-                        <h3>{nameOfTv()}</h3>
-                        <p>{priceOfTv(bestSellingTv.price)}</p>
-                        <p>{sizeOfTv(bestSellingTv.availableSizes)}</p>
-                    </div>
-                    <div>
-                        <div className="icon-part">
-                            <img src={check} className="icons" alt="check-icon"/>
-                            <p>wifi</p>
-                        </div>
-                        <div className="icon-part">
-                            <img src={minus} className="icons" alt="minus-icon"/>
-                            <p>speech</p>
-                        </div>
-                        <div className="icon-part">
-                            <img src={check} className="icons" alt="check-icon"/>
-                            <p>hdr</p>
-                        </div>
-                        <div className="icon-part">
-                            <img src={check} className="icons" alt="check-icon"/>
-                            <p>bluetooth</p>
-                        </div>
-                        <div className="icon-part">
-                            <img src={minus} className="icons" alt="check-icon"/>
-                            <p>ambilight</p>
-                        </div>
-                    </div>
+                    <main>
+                        <section>
+                            <h2>Verkoopoverzicht</h2>
+                            <div className="dashboard-container">
+                                <article className="dashboard-item items-sold">
+                                    <h3>Aantal verkochte producten</h3>
+                                    <h2>{soldTelevisions(inventory)}</h2>
+                                </article>
+                                <article className="dashboard-item items-original">
+                                    <h3>Aantal ingekochte producten</h3>
+                                    <h2>{stockStart(inventory)}</h2>
+                                </article>
+                                <article className="dashboard-item items-to-sell">
+                                    <h3>Aantal te verkopen producten</h3>
+                                    <h2>{stockCurrent(inventory)}</h2>
+                                </article>
+                            </div>
+                        </section>
 
-                </section>
-                <section>
-                    <button type="button" onClick={() => printText('Meest verkochte eerst')}>Meest verkochte eerst
-                    </button>
-                    <button type="button" onClick={() => printText('Goedkoopste eerst')}>Goedkoopste eerst
-                    </button>
-                    <button type="button" onClick={() => printText('Meest geschikt voor sport eerst')}>Meest geschikt
-                        voor sport eerst
-                    </button>
-                </section>
+                        <section>
+                            <h2>Best verkochte TV</h2>
+                            <div className="best-sold-tv">
+                                <div className="tv-image">
+                                    <img src={bestSellingTv.sourceImg} alt="afbeelding van de tv"/>
+                                </div>
 
-            </main>
+                                <div className="tv-information">
+                                    <h3>{nameOfTv()}</h3>
+                                    <p>{priceOfTv(bestSellingTv.price)}</p>
+                                    <p>{sizeOfTv(bestSellingTv.availableSizes)}</p>
+                                    <div className="icon-wrapper">
+                                        <img src={check} className="icons" alt="check-icon"/>
+                                        <p>wifi</p>
 
+                                        <img src={minus} className="icons" alt="minus-icon"/>
+                                        <p>speech</p>
+
+                                        <img src={check} className="icons" alt="check-icon"/>
+                                        <p>hdr</p>
+
+                                        <img src={check} className="icons" alt="check-icon"/>
+                                        <p>bluetooth</p>
+
+                                        <img src={minus} className="icons" alt="check-icon"/>
+                                        <p>ambilight</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </section>
+
+                        <section>
+                            <button type="button" onClick={() => printText('Meest verkochte eerst')}>Meest verkochte
+                                eerst
+                            </button>
+                            <button type="button" onClick={() => printText('Goedkoopste eerst')}>Goedkoopste eerst
+                            </button>
+                            <button type="button" onClick={() => printText('Meest geschikt voor sport eerst')}>Meest
+                                geschikt
+                                voor sport eerst
+                            </button>
+                        </section>
+
+                        <section>
+                            <ul>
+                                {inventory.map((tv) => {
+                                    return <li key={tv.type}>{tv.brand}</li>
+                                })}
+                            </ul>
+                        </section>
+
+                        <section>
+                            <ul>
+                                {inventory.map((tv) => {
+                                    return <div className="tv-image"><img src={tv.sourceImg}
+                                                                          alt="afbeelding van de tv"/></div>
+                                })
+                                }
+
+                            </ul>
+                        </section>
+                    </main>
+                </div>
+            </div>
         </>
 
     );

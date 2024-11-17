@@ -40,3 +40,11 @@ export const suitableSportLovers = inventory.map((tv) => {
 });
 
 //Opdracht 1e (uitdaging): Gebruik array-methoden om alle informatie te verzamelen van de tv's die beschikbaar zijn in schermgroottes van 65 inch en groter.
+// stappenplan:
+// loop door de array heen en:
+// a) filter alle tv´s met schermgrootte 65 inch of meer eruit en
+// b) die entry moet in de array komen .
+// resultaat: array met objecten, waarbij elk object een tv bevat die schermgrootte 65 of meer heeft.
+
+
+

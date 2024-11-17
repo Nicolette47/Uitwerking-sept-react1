@@ -1,32 +1,118 @@
-.soldTvs {
-    color: green;
-    background-color: greenyellow;
+/**table of content*/
+/*1.global styles*/
+/*2. typography*/
+/*3. lay out*/
+/*4. Areas:*/
+/*   4.1 header*/
+/*   4.2 section sales-overview*/
+/*   4.3 section best-selling-tv*/
+/*   4.4 buttons
+/*5.media queries*/
+
+
+/*1.global styles*/
+
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
 }
 
-.startStock {
-    color: blue;
-    background-color: cornflowerblue;
-}
-
-.currentStock {
-    color: orangered;
-    background-color: lightpink;
-}
-
-button {
-    background-color:lightskyblue ;
-    color: blueviolet;
-    font-weight: bold;
-    border-radius: 5px;
-    padding: 10px;
-}
-
-button + button {
-    margin-left: 10px;
+html {
+    font-size: 16px;
 }
 
 
-.icons {
-    width: 20px;
-    height: 20px;
+/*3. lay out*/
+.outer-container {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
 }
+
+.inner-container {
+    display: flex;
+    flex-direction: column;
+    flex-basis: 1200px;
+    margin: 0 20px;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 32px;
+}
+
+/* 4.1 header */
+
+/*   4.2 section sales-overview*/
+.dashboard-container {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    gap: 32px;
+}
+
+.dashboard-item {
+    border-radius: 4px;
+    padding: 16px;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    flex-basis: 300px;
+    flex-grow: 0;
+    flex-shrink: 1;
+}
+    .items-sold {
+        color: green;
+        background-color: greenyellow;
+        border: 1px solid green;
+    }
+
+    .items-original {
+        color: blue;
+        background-color: cornflowerblue;
+        border: 1px solid blue;
+    }
+
+    .items-to-sell {
+        color: orangered;
+        background-color: lightpink;
+        border: 1px solid orangered;
+    }
+
+    /*   4.3 section best-selling-tv*/
+
+    .best-sold-tv {
+        display: flex;
+        flex-direction: row;
+
+    }
+
+    .icon-wrapper {
+        display: flex;
+        flex-direction: row;
+    }
+
+    .tv-information {
+        padding: 0 0 0 1em;
+    }
+
+
+    /*4.4. Buttons */
+
+    button {
+        background-color: lightskyblue;
+        color: blueviolet;
+        font-weight: bold;
+        border-radius: 5px;
+        padding: 10px;
+    }
+
+    button + button {
+        margin-left: 10px;
+    }
+
+
+    .icons {
+        width: 20px;
+        height: 20px;
+    }
