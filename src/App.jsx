@@ -22,16 +22,73 @@ import {tvOptions} from "./helpers/iconsdisplay.js";
 
 function App() {
 
+// DEEL 2 OPDRACHT 1 (functies in helperfiles)
 
-    function printText(buttonText) {
+   // console.log(allTvNames);
+   // console.log(soldTvInfo);
+   // console.log(infoTvNH);
+   // console.log(suitableSportLovers);
+   // console.log(tvInches);
+
+// BUTTON + DEEL 2 OPDRACHT 3
+   // function printText(buttonText) {
+   //     console.log(buttonText);
+   // }
+
+    function printArray(buttonText) {
         console.log(buttonText);
     }
 
-    console.log(allTvNames);
-    console.log(soldTvInfo);
-    console.log(infoTvNH);
-    console.log(suitableSportLovers);
-    console.log(tvInches);
+// Meest verkochte items van hoog naar laag.
+    //Stappenplan:
+    // 1. over array gaan = elk object scannen- via de sort methode
+    // 2. eerste keer loop : van het object de sold property getal 1 nemen
+    // 3. naar volgende object gaan. Daar weer sold property getal 2 nemen
+    // 4. dan deze twee getallen vergelijken
+    // 5. Als getal 2 kleiner is dan getal 1, dan dat object naar links schuiven= neg getal etc.
+
+    inventory.sort((a, b) => {
+        if (a.sold > b.sold) {
+            return -1;
+        } else if (a.sold < b.sold) {
+            return 1;
+        } else {
+            return 0;
+        }
+    });
+    console.log(inventory);
+
+    inventory.sort((a, b) => b.sold - a.sold)
+
+// Goedkoopste eerst :sorten prijs van laag naar hoog
+    inventory.sort((a, b) => {
+        if (a.price > b.price) {
+            return 1;
+        } else if (a.price < b.price) {
+            return -1;
+        } else {
+            return 0;
+        }
+    });
+    console.log(inventory);
+
+    inventory.sort((a, b) => a.price - b.price)
+
+
+
+// Meest geschikt voor sport : van hoog naar laag
+    inventory.sort((a, b) => {
+        if (a.refreshRate > b.refreshRate) {
+            return -1;
+        } else if (a.refreshRate < b.refreshRate) {
+            return 1;
+        } else {
+            return 0;
+        }
+    });
+    console.log(inventory);
+
+    inventory.sort((a, b) => b.sold - a.sold)
 
 
     return (
@@ -94,12 +151,12 @@ function App() {
                         </section>
 
                         <section>
-                            <button type="button" onClick={() => printText('Meest verkochte eerst')}>Meest verkochte
+                            <button type="button" onClick={() => printArray( inventory.sort((a, b) => b.sold - a.sold))}>Meest verkochte
                                 eerst
                             </button>
-                            <button type="button" onClick={() => printText('Goedkoopste eerst')}>Goedkoopste eerst
+                            <button type="button" onClick={() => printArray(  inventory.sort((a, b) => a.price - b.price))}>Goedkoopste eerst
                             </button>
-                            <button type="button" onClick={() => printText('Meest geschikt voor sport eerst')}>Meest
+                            <button type="button" onClick={() => printArray(inventory.sort((a, b) => b.refreshRate - a.refreshRate))}>Meest
                                 geschikt voor sport eerst
                             </button>
                         </section>
