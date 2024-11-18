@@ -17,9 +17,11 @@ import {soldTvInfo} from './constants/deel2opdracht1.js';
 import {infoTvNH} from './constants/deel2opdracht1.js';
 import {suitableSportLovers} from './constants/deel2opdracht1.js';
 import {tvInches} from './constants/deel2opdracht1.js';
+import {tvOptions} from "./helpers/iconsdisplay.js";
 
 
 function App() {
+
 
     function printText(buttonText) {
         console.log(buttonText);
@@ -30,11 +32,6 @@ function App() {
     console.log(infoTvNH);
     console.log(suitableSportLovers);
     console.log(tvInches);
-
-const tvNamesGeneral = inventory.map((tv) => {
-    return `${tv.brand} ${tv.type} - ${tv.name}`
-});
-console.log(tvNamesGeneral);
 
 
     return (
@@ -103,8 +100,7 @@ console.log(tvNamesGeneral);
                             <button type="button" onClick={() => printText('Goedkoopste eerst')}>Goedkoopste eerst
                             </button>
                             <button type="button" onClick={() => printText('Meest geschikt voor sport eerst')}>Meest
-                                geschikt
-                                voor sport eerst
+                                geschikt voor sport eerst
                             </button>
                         </section>
 
@@ -129,6 +125,7 @@ console.log(tvNamesGeneral);
                                                 <h3>{nameOfTv2(tv)}</h3>
                                                 <p className="best-tv-price">{priceAllTvs(tv)}</p>
                                                 <p>{sizesOfTvs(tv)}</p>
+                                                <p>{tvOptions(tv)}</p>
                                             </div>
                                         </li>
                                     );
