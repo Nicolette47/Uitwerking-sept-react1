@@ -17,20 +17,26 @@ import {soldTvInfo} from './constants/deel2opdracht1.js';
 import {infoTvNH} from './constants/deel2opdracht1.js';
 import {suitableSportLovers} from './constants/deel2opdracht1.js';
 import {tvInches} from './constants/deel2opdracht1.js';
-import {tvOptions} from "./helpers/iconsdisplay.js";
+import {tvOptions} from './helpers/iconsdisplay.js';
+import {ambiTvs} from './constants/deel2opdracht1.js';
+
 
 
 function App() {
 
 // DEEL 2 OPDRACHT 1 (functies in helperfiles)
 
-   // console.log(allTvNames);
-   // console.log(soldTvInfo);
-   // console.log(infoTvNH);
-   // console.log(suitableSportLovers);
-   // console.log(tvInches);
+   console.log(allTvNames);
+   console.log(soldTvInfo);
+   console.log(infoTvNH);
+   console.log(suitableSportLovers);
+   console.log(tvInches);
+   console.log(ambiTvs);
 
-// BUTTON + DEEL 2 OPDRACHT 3
+
+
+
+// BUTTON + DEEL 2 OPDRACHT 3  (NB daarna aan buttons gekoppeld)
    // function printText(buttonText) {
    //     console.log(buttonText);
    // }
